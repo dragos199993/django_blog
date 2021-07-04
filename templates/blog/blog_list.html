@@ -1,0 +1,13 @@
+{% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}</h1>
+{% else %}
+    <h1>You are now browsing as a guest</h1>
+{% endif %}
+
+{% for post in posts reversed %}
+    <div>
+        <h2><a href="{% url 'blog_detail' post.id %}">{{ post.title }}</a></h2>
+        {{ post.created_at }}
+        <p>{{ post.body|truncatewords:20 }}</p>
+    </div>
+{% endfor %}

@@ -1,0 +1,25 @@
+{% for message in messages %}
+<h5 style="color: orange">{{ message }}</h5>
+{% endfor %}
+
+<form action="{% url 'register' %}" method="POST">
+  {% csrf_token %}
+  <div>
+    <label for="username">Username</label>
+    <input type="text" name="username" />
+  </div>
+  <div>
+    <label for="email">Emaill</label>
+    <input type="email" name="email" />
+  </div>
+
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" />
+  </div>
+  <div>
+    <label for="password_repeat">Password repeat</label>
+    <input type="password" name="password_repeat" />
+  </div>
+  <button>Register</button>
+</form>
